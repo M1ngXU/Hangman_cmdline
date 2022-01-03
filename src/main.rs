@@ -72,9 +72,9 @@ static HANGMANS: [ &str; 12 ] = [
 	"  ________\n |/      |\n |        \n |         \n |         \n/ \\",
 	"  ________\n |/      |\n |       𝙾\n |         \n |         \n/ \\",
 	"  ________\n |/      |\n |       𝙾\n |       | \n |         \n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |       | \n |        \\\n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |       | \n |      /  \n/ \\",
 	"  ________\n |/      |\n |       𝙾\n |       | \n |      / \\\n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |       |/\n |      / \\\n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |      \\| \n |      / \\\n/ \\",
 	"  ________\n |/      |\n |       𝙾\n |      \\|/\n |      / \\\n/ \\",
 ];
 
@@ -88,7 +88,8 @@ fn main() {
     let mut mistakes = 0;
 
     clear_screen();
-    while different_characters > guesses - mistakes {
+		println!("Welcome to Hangman!\n");
+    while mistakes < 11 && different_characters > guesses - mistakes {
         println!(
             "Amount of wrong/total guesses: {}/{}\n{}\nGuessed: {}\nWord: {}",
             mistakes,
@@ -120,5 +121,9 @@ fn main() {
         });
     }
     clear_screen();
-    println!("{}!!! The word was `{}`! Your guesses were {} times wrong.", "CORRRRRRRECT".green().bold(), word.trim().green().bold(), mistakes.to_string().trim().red().bold());
+		if different_characters == guesses - mistakes {
+    	println!("{}!!! The word was `{}`! Your guesses were {} times wrong.", "CORRRRRRRECT".green().bold(), word.trim().green().bold(), mistakes.to_string().trim().red().bold());
+		} else {
+			println!("{}!!! The word was `{}`! Your guesses were {} times wrong.", "WROOOOOOOONG".red().bold(), word.trim().green().bold(), mistakes.to_string().trim().red().bold());
+		}
 }

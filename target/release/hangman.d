@@ -1,1 +1,1 @@
-/home/runner/Hangmancmdline/target/release/hangman: /home/runner/Hangmancmdline/src/main.rs
+/home/runner/Hangman/target/release/hangman: /home/runner/Hangman/src/main.rs
