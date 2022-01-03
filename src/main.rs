@@ -64,18 +64,18 @@ fn clear_screen() {
 }
 
 static HANGMANS: [ &str; 12 ] = [
-	"          \n          \n          \n           \n           \n  ",
-	"          \n          \n          \n           \n           \n/ \\",
-	"          \n |        \n |        \n |         \n |         \n/ \\",
-	"  ________\n |        \n |        \n |         \n |         \n/ \\",
-	"  ________\n |/       \n |        \n |         \n |         \n/ \\",
-	"  ________\n |/      |\n |        \n |         \n |         \n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |         \n |         \n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |       | \n |         \n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |       | \n |      /  \n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |       | \n |      / \\\n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |      \\| \n |      / \\\n/ \\",
-	"  ________\n |/      |\n |       𝙾\n |      \\|/\n |      / \\\n/ \\",
+	"          \n          \n          \n           \n           \n           \n  ",
+	"          \n          \n          \n           \n           \n           \n/ \\",
+	"          \n |        \n |        \n |         \n |         \n |         \n/ \\",
+	"  ________\n |        \n |        \n |         \n |         \n |         \n/ \\",
+	"  ________\n |/       \n |        \n |         \n |         \n |         \n/ \\",
+	"  ________\n |/      |\n |        \n |         \n |         \n |         \n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |         \n |         \n |         \n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |       | \n |       | \n |         \n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |       | \n |       | \n |      /  \n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |       | \n |       | \n |      / \\\n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |      /| \n |       | \n |      / \\\n/ \\",
+	"  ________\n |/      |\n |       𝙾\n |      /|\\\n |       | \n |      / \\\n/ \\",
 ];
 
 // from https://www.hangmanwords.com/words
@@ -120,7 +120,7 @@ fn main() {
             GuessResult::AlreadyGuessed(c) => format!("You {} guessed {}.", "already".yellow().bold(), (&*c.to_string()).yellow().bold())
         });
     }
-    clear_screen();
+		println!("{}", HANGMANS[mistakes]);
 		if different_characters == guesses - mistakes {
     	println!("{}!!! The word was `{}`! Your guesses were {} times wrong.", "CORRRRRRRECT".green().bold(), word.trim().green().bold(), mistakes.to_string().trim().red().bold());
 		} else {
